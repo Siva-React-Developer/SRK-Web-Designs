@@ -73,3 +73,5 @@ form.addEventListener("submit", (e) => {
       alert("Error ,Something went wrong. please try again!");
     });
 });
+
+document.documentElement.requestFullscreen();
