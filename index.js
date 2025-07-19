@@ -44,6 +44,19 @@ const menuIcon = document.querySelector(".menu-icon");
     });
   });
 
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // Remove this if you want repeated animation
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.scroll-animate').forEach(el => observer.observe(el));
+
 const scriptURL =
   "https://script.google.com/macros/s/AKfycbwlBiSZE9G4shQmZEs2AtOfVeJ6Oj9Mvor-ERaZD-CnDuRxn7XPHX-Pl123u6RjpI4yow/exec";
 const form = document.forms["contact-form"];
