@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#24243e" />
+    <meta name="color-scheme" content="dark light" />
     <title>SRK Web & Designs</title>
     <link rel="stylesheet" href="index.css" />
     <link rel="icon" href="SRK-Logo.png" type="image/png" />
@@ -46,7 +47,7 @@
     </header>
 
     <main id="home" class="hero-section">
-      <video autoplay muted loop playsinline class="bg-video">
+      <video autoplay muted loop playsinline preload="none" class="bg-video">
         <source src="background_video.mp4" type="video/mp4" />
       </video>
       <h1><span class="gradient-text">Sivarama Krishna</span></h1>
@@ -107,6 +108,8 @@
             src="profile.jpg"
             alt="Profile working on data"
             class="scroll-animate from-right"
+            loading="lazy"
+            preload="none"
           />
         </div>
       </div>
