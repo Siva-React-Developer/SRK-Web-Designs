@@ -1,12 +1,28 @@
+// to save the form details in google sheet
+const scriptURL =
+  "https://script.google.com/macros/s/AKfycbwlBiSZE9G4shQmZEs2AtOfVeJ6Oj9Mvor-ERaZD-CnDuRxn7XPHX-Pl123u6RjpI4yow/exec";
+const form = document.forms["contact-form"];
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  var formData = new FormData(form);
+
+  fetch(scriptURL, { method: "POST", body: formData })
+    .then((response) => {
+      alert("Done ,Submitted Successfully.");
+      form.reset();
+    })
+    .catch((error) => {
+      alert("Error ,Something went wrong. please try again!");
+    });
+});
+
+// scroll-animate for all sections via navbar links
 document.addEventListener("DOMContentLoaded", () => {
-  // Select all nav links
   document.querySelectorAll(".navbar-links").forEach((link) => {
     link.addEventListener("click", function (e) {
-      e.preventDefault(); // Stop default jump
-
-      const targetId = this.getAttribute("href").substring(1); // Remove '#'
+      e.preventDefault();
+      const targetId = this.getAttribute("href").substring(1);
       const targetElement = document.getElementById(targetId);
-
       if (targetElement) {
         targetElement.scrollIntoView({
           behavior: "smooth",
@@ -16,12 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Toggle vertical navbar on menu icon click
 const menuIcon = document.querySelector(".menu-icon");
 const vertNavbar = document.querySelector(".navbar1");
-
-// Toggle navbar visibility on menu icon click
 menuIcon.addEventListener("click", (e) => {
-  e.stopPropagation(); // prevent closing when clicking the menu icon
+  e.stopPropagation();
   vertNavbar.classList.toggle("show");
 });
 
@@ -36,7 +51,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Optional: Close navbar when a link is clicked
+// Close navbar when a link is clicked
 const navLinks = document.querySelectorAll(".vert-nav-links a");
 navLinks.forEach((link) => {
   link.addEventListener("click", () => {
@@ -62,38 +77,29 @@ document
   .querySelectorAll(".scroll-animate")
   .forEach((el) => observer.observe(el));
 
-const scriptURL =
-  "https://script.google.com/macros/s/AKfycbwlBiSZE9G4shQmZEs2AtOfVeJ6Oj9Mvor-ERaZD-CnDuRxn7XPHX-Pl123u6RjpI4yow/exec";
-const form = document.forms["contact-form"];
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  var formData = new FormData(form);
-
-  fetch(scriptURL, { method: "POST", body: formData })
-    .then((response) => {
-      alert("Done ,Submitted Successfully.");
-      form.reset();
-    })
-    .catch((error) => {
-      alert("Error ,Something went wrong. please try again!");
-    });
-});
-
-let hasRun = false;
-
-function initFullscreen() {
-  if (hasRun) return;
-  hasRun = true;
-
+// Automatically trigger fullscreen mode after a short delay
+let hasEnteredFullscreen = false;
+function enterFullscreen() {
+  if (hasEnteredFullscreen) return;
+  hasEnteredFullscreen = true;
   const elem = document.documentElement;
   if (elem.requestFullscreen) {
     elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen(); // For Safari
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen(); // For IE
+  } else {
+    console.warn("Fullscreen API is not supported on this browser.");
   }
 }
+// Run fullscreen on first touch or click
+document.addEventListener("click", enterFullscreen, { once: true });
+document.addEventListener("touchstart", enterFullscreen, { once: true });
 
+// closing the navbar on scroll
 let lastScrollTop = 0;
 const navbar = document.querySelector(".navbar");
-
 window.addEventListener("scroll", () => {
   const currentScroll = window.scrollY;
 
@@ -104,6 +110,5 @@ window.addEventListener("scroll", () => {
     // Scroll Up
     navbar.classList.remove("hidden");
   }
-
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
