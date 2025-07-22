@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SRK Web & Designs</title>
     <link rel="stylesheet" href="index.css" />
-    <link rel="icon" href="SRK-Logo.png" type="image/png" />
+    <link rel="icon" href="web-icon.png" type="image/png" />
     <!-- Font Awesome CDN for social icons -->
     <link
       rel="stylesheet"
@@ -21,10 +21,11 @@
       rel="stylesheet"
     />
   </head>
-  <body>
+  <body onclick="initFullscreen()" ontouchstart="initFullscreen()">
     <header>
       <nav class="navbar">
-        <div class="logo">SRK</div>
+        <div class="logo"><img src="web-icon.png" alt=""></div>
+        <p class="logo-text">SRK Web & Designs</p>
         <ul class="nav-links">
           <li><a href="#home" class="navbar-links">Home</a></li>
           <li><a href="#about" class="navbar-links">About</a></li>

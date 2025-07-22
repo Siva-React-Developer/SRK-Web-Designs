@@ -23,14 +23,29 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 0px 50px;
-  background-color: rgb(10, 5, 51);
-  z-index: 2;
+  background-color: rgb(5, 2, 30);
+  /* z-index: 2; */
   border-bottom: 1px solid rgb(53, 53, 53);
+  transition: transform 0.3s ease-in-out;
+  z-index: 999;
 }
-.logo {
-  font-weight: bold;
-  font-size: 24px;
-  color: #00f0ff;
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+/* main {
+  padding-top: 80px;
+} */
+.logo img {
+  height: 50px;
+  width: 50px;
+}
+.logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800; /* ExtraBold */
+  font-size: 32px;
+  letter-spacing: 2px; /* Increase width */
+  text-transform: uppercase;
+  color: aqua; /* or your brand color */
 }
 .nav-links {
   list-style: none;
@@ -618,6 +633,18 @@ body {
   .scroll-animate.visible {
     opacity: 1;
     transform: translate(0, 0);
+  }
+}
+
+@media (max-width: 1000px) {
+  .logo-text{
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 890px) {
+  .logo-text{
+    display: none;
   }
 }
 
