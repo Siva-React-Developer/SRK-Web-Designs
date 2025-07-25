@@ -15,7 +15,7 @@ body {
 
 /* Navbar */
 .navbar {
-  height: 80px;
+  height: 70px;
   width: 100%;
   position: fixed;
   top: 0;
@@ -32,18 +32,21 @@ body {
 .navbar.hidden {
   transform: translateY(-100%);
 }
-/* main {
-  padding-top: 80px;
-} */
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
 .logo img {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 }
 .logo-text {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 800; /* ExtraBold */
-  font-size: 32px;
-  letter-spacing: 2px; /* Increase width */
+  font-size: 22px;
+  letter-spacing: 1px; /* Increase width */
   text-transform: uppercase;
   color: aqua; /* or your brand color */
 }
@@ -69,7 +72,7 @@ body {
 }
 .navbar1 {
   position: fixed;
-  top: 80px;
+  top: 70px;
   width: 100%;
   background-color: rgb(5, 2, 34);
   z-index: 2;
@@ -106,10 +109,10 @@ body {
 /* Hero Section */
 .hero-section {
   position: relative;
-  top: 80px;
+  top: 70px;
   text-align: center;
   padding: 120px 20px;
-  height: 90.5vh;
+  height: 90.9vh;
   width: 100%;
   /* background: linear-gradient(to bottom, #2b0b5a, #3e107b); */
 }
@@ -221,7 +224,7 @@ body {
 /* about-section */
 .about-section {
   position: relative;
-  top: 80px;
+  top: 70px;
   padding: 80px 40px;
   background: linear-gradient(to bottom, #2b0b5a, #3e107b);
   color: white;
@@ -307,7 +310,7 @@ body {
 /* skills-section */
 .skills-section {
   position: relative;
-  top: 80px;
+  top: 70px;
   padding: 80px 40px;
   background: linear-gradient(to bottom, #2a0760, #3d0e80);
   color: white;
@@ -411,11 +414,15 @@ body {
 /* projects-section */
 .projects-section {
   position: relative;
-  top: 80px;
+  top: 70px;
+  height: 610px;
   padding: 80px 40px;
   background: linear-gradient(to bottom, #310e68, #3d157f);
   color: white;
   text-align: center;
+  overflow: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
 }
 .projects-section .section-title {
   font-size: 36px;
@@ -444,35 +451,43 @@ body {
 .project-card:hover {
   transform: translateY(-5px);
 }
-.project-card h3 {
+.project-card .project-name {
   font-size: 20px;
   font-weight: 600;
   margin-bottom: 8px;
   color: #82d6ff;
   font-family: "Roboto", sans-serif;
 }
-.project-card .project-date {
+.project-card .project-last-edit {
   font-size: 13px;
   color: #ccc;
-  margin-bottom: 10px;
+  margin:5px 0px 5px 0px;
+
   font-family: "Roboto", sans-serif;
 }
-.project-card p {
+.project-card .project-description {
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 10px;
   font-family: "Roboto", sans-serif;
 }
-.project-card .tech-used {
+.project-card .project-technologies {
   font-size: 13px;
   color: #ffd86b;
   font-style: italic;
+}
+.project-card .project-url{
+  text-decoration: none;
+  color: #00c6ff;
+}
+.project-card .project-url:hover{
+  color: #6cf0ff;
 }
 
 /* contact-section */
 .contact-section {
   position: relative;
-  top: 80px;
+  top: 70px;
   padding: 80px 40px;
   background: linear-gradient(to bottom, #2e0d67, #3c127a);
   color: white;
@@ -593,7 +608,7 @@ body {
 /* footer-section */
 .footer {
   position: relative;
-  top: 80px;
+  top: 70px;
   background: linear-gradient(to right, #2a0845, #3b0d77);
   text-align: center;
   padding: 20px 20px;
@@ -614,6 +629,9 @@ body {
   color: #00c6ff;
 }
 
+
+
+/* Responsive */
 @media (max-width: 1245px) {
   .scroll-animate {
     opacity: 0;
@@ -636,20 +654,22 @@ body {
   }
 }
 
-@media (max-width: 1000px) {
-  .logo-text{
-    font-size: 25px;
-  }
-}
-
 @media (max-width: 890px) {
-  .logo-text{
-    display: none;
+  .navbar {
+    padding: 0px 20px;
+  }
+  .logo-text {
+    font-size: 20px;
   }
 }
 
-/* Responsive */
 @media (max-width: 768px) {
+  .logo-text {
+    font-size: 17px;
+  }
+  .nav-links {
+    gap: 15px;
+  }
   .gradient-text {
     font-size: 45px;
   }
@@ -717,6 +737,14 @@ body {
 }
 
 @media (max-width: 400px) {
+  .logo img {
+    height: 35px;
+    width: 35px;
+  }
+  .logo-text {
+    letter-spacing: 0px;
+    font-size: 15px;
+  }
   .scroll-animate {
     opacity: 0;
     transform: translateY(30px);

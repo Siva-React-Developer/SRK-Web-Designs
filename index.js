@@ -16,6 +16,56 @@ form.addEventListener("submit", (e) => {
     });
 });
 
+// JavaScript to dynamically create project cards
+const container = document.querySelector(".projects-grid");
+
+// Fetch JSON data from file
+fetch("projects.json")
+  .then((response) => response.json())
+  .then((data) => {
+    const projects = data.projects;
+
+    projects.forEach((project) => {
+      const projectDiv = document.createElement("div");
+      projectDiv.className = "project-card scroll-animate from-right visible";
+
+      // Create and append <p> tags
+      const nameP = document.createElement("p");
+      nameP.textContent = project.name;
+      nameP.className = "project-name";
+      projectDiv.appendChild(nameP);
+
+      const descP = document.createElement("p");
+      descP.textContent = `Description: ${project.description}`;
+      descP.className = "project-description";
+      projectDiv.appendChild(descP);
+
+      const techP = document.createElement("p");
+      techP.textContent = `Technologies: ${project.technologies}`;
+      techP.className = "project-technologies";
+      projectDiv.appendChild(techP);
+
+      const editP = document.createElement("p");
+      editP.textContent = `Last Edit: ${project.lastEdited}`;
+      editP.className = "project-last-edit";
+      projectDiv.appendChild(editP);
+
+      // Create and append anchor tag
+      const urlA = document.createElement("a");
+      urlA.href = project.path;
+      urlA.target = "_blank";
+      urlA.textContent = "Visit site";
+      urlA.className = "project-url";
+      projectDiv.appendChild(urlA);
+
+      // Append the full project div to main container
+      container.appendChild(projectDiv);
+    });
+  })
+  .catch((error) => {
+    console.error("Failed to load projects.json:", error);
+  });
+
 // scroll-animate for all sections via navbar links
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".navbar-links").forEach((link) => {
@@ -77,26 +127,6 @@ document
   .querySelectorAll(".scroll-animate")
   .forEach((el) => observer.observe(el));
 
-// Automatically trigger fullscreen mode after a short delay
-let hasEnteredFullscreen = false;
-function enterFullscreen() {
-  if (hasEnteredFullscreen) return;
-  hasEnteredFullscreen = true;
-  const elem = document.documentElement;
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) {
-    elem.webkitRequestFullscreen(); // For Safari
-  } else if (elem.msRequestFullscreen) {
-    elem.msRequestFullscreen(); // For IE
-  } else {
-    console.warn("Fullscreen API is not supported on this browser.");
-  }
-}
-// Run fullscreen on first touch or click
-document.addEventListener("click", enterFullscreen, { once: true });
-document.addEventListener("touchstart", enterFullscreen, { once: true });
-
 // closing the navbar on scroll
 let lastScrollTop = 0;
 const navbar = document.querySelector(".navbar");
@@ -112,3 +142,4 @@ window.addEventListener("scroll", () => {
   }
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
+

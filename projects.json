@@ -1,0 +1,25 @@
+{
+    "projects": [
+        {
+            "name": "Renuza Technologies Pvt Ltd",
+            "path": "https://siva-react-developer.github.io/Company_Website/",
+            "description": " Designed and developed a responsive, user-friendly company website featuring product listings, inquiry forms, and admin panel. Integrated Google Sheets for data management and ensured cross-browser compatibility.",
+            "technologies": ["HTML", "CSS", "JavaScript","google Sheets API"],
+            "lastEdited": "Dec 2024"
+        },
+        {
+            "name": "Weather Report",
+            "path": "https://siva-react-developer.github.io/Weather_Report/",
+            "description": "Created a web application to fetch and display live weather data based on user location. Features include city-wise forecasts, temperature, humidity levels, and dynamic weather icons with responsive design.",
+            "technologies": ["HTML", "CSS", "JavaScript"],
+            "lastEdited": "Mar 2024"
+        },
+        {
+            "name": "Blockchain-based Authentication Model",
+            "path": "https://siva-react-developer.github.io/Company_Website/",
+            "description": "Developed a decentralized authentication scheme to prevent data from hacker attacks. The project focused on ensuring cybersecurity by safeguarding sensitive information and improving the integrity and confidentiality of networks.",
+            "technologies": [ "Java", "SQL 5.5.1"],
+            "lastEdited": "Jan 2023"
+        }
+    ]
+}
