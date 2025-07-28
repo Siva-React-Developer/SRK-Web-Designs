@@ -137,10 +137,10 @@ body {
   align-items: flex-start;
   justify-content: space-around;
 }
-.fishes p{
+.fishes p {
   font-size: 30px;
 }
-.bubbles{
+.bubbles {
   position: absolute;
   left: 0;
   bottom: 0px;
@@ -150,7 +150,7 @@ body {
   align-items: flex-end;
   justify-content: space-between;
 }
-.bubbles marquee{
+.bubbles marquee {
   height: 90.9vh;
 }
 .gradient-text {
@@ -449,7 +449,7 @@ body {
   text-align: center;
   overflow: scroll;
   scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 .projects-section .section-title {
   font-size: 36px;
@@ -488,7 +488,7 @@ body {
 .project-card .project-last-edit {
   font-size: 13px;
   color: #ccc;
-  margin:5px 0px 5px 0px;
+  margin: 5px 0px 5px 0px;
 
   font-family: "Roboto", sans-serif;
 }
@@ -503,11 +503,11 @@ body {
   color: #ffd86b;
   font-style: italic;
 }
-.project-card .project-url{
+.project-card .project-url {
   text-decoration: none;
   color: #00c6ff;
 }
-.project-card .project-url:hover{
+.project-card .project-url:hover {
   color: #6cf0ff;
 }
 
@@ -621,6 +621,28 @@ body {
 .contact-form button:hover {
   opacity: 0.9;
 }
+.loader {
+  position: absolute;
+  top: 36%;
+  left: 45%;
+  display: none;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-top: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 /* Color themes */
 .info-card.pink .icon {
   color: #e91e63;
@@ -656,8 +678,6 @@ body {
   color: #00c6ff;
 }
 
-
-
 /* Responsive */
 @media (max-width: 1245px) {
   .scroll-animate {
@@ -682,7 +702,7 @@ body {
 }
 
 @media (max-width: 1000px) {
-  .bubbles marquee p{
+  .bubbles marquee p {
     font-size: 18px;
   }
 }
@@ -739,7 +759,7 @@ body {
   .menu-icon {
     display: block;
   }
-   .bubbles marquee p{
+  .bubbles marquee p {
     font-size: 15px;
   }
   .gradient-text {
@@ -799,7 +819,7 @@ body {
     opacity: 1;
     transform: translate(0, 0);
   }
-   .bubbles marquee p{
+  .bubbles marquee p {
     font-size: 12px;
   }
   .gradient-text {
@@ -846,6 +866,10 @@ body {
   }
   .contact-section .section-title {
     font-size: 26px;
+  }
+  .loader {
+    width: 30px;
+    height: 30px;
   }
   .footer .social-icons a {
     font-size: 20px;

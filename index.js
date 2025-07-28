@@ -5,10 +5,11 @@ const form = document.forms["contact-form"];
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   var formData = new FormData(form);
-
+  document.getElementById('loader').style.display = 'inline-block';
   fetch(scriptURL, { method: "POST", body: formData })
     .then((response) => {
       alert("Done ,Submitted Successfully.");
+      document.getElementById('loader').style.display = 'none';
       form.reset();
     })
     .catch((error) => {
