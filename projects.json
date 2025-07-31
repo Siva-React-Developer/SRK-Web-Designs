@@ -9,14 +9,14 @@
         },
         {
             "name": "Weather Report",
-            "path": "https://siva-react-developer.github.io/Weather_Report/",
+            "path": "https://siva-react-developer.github.io/weather-report/",
             "description": "Created a web application to fetch and display live weather data based on user location. Features include city-wise forecasts, temperature, humidity levels, and dynamic weather icons with responsive design.",
             "technologies": ["HTML", "CSS", "JavaScript"],
             "lastEdited": "Mar 2024"
         },
         {
             "name": "Blockchain-based Authentication Model",
-            "path": "https://siva-react-developer.github.io/Company_Website/",
+            "path": "https://siva-react-developer.github.io/SRK-Web-Designs/",
             "description": "Developed a decentralized authentication scheme to prevent data from hacker attacks. The project focused on ensuring cybersecurity by safeguarding sensitive information and improving the integrity and confidentiality of networks.",
             "technologies": [ "Java", "SQL 5.5.1"],
             "lastEdited": "Jan 2023"
