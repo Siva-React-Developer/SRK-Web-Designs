@@ -5,17 +5,43 @@ const form = document.forms["contact-form"];
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   var formData = new FormData(form);
-  document.getElementById('loader').style.display = 'inline-block';
+  document.getElementById("loader").style.display = "inline-block";
   fetch(scriptURL, { method: "POST", body: formData })
     .then((response) => {
       alert("Done ,Submitted Successfully.");
-      document.getElementById('loader').style.display = 'none';
+      document.getElementById("loader").style.display = "none";
       form.reset();
     })
     .catch((error) => {
       alert("Error ,Something went wrong. please try again!");
     });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const video = document.getElementById("myVideo");
+  const fallbackImage = document.getElementById("fallbackImage");
+
+  const source = video.querySelector('source');
+    if (!source || !source.getAttribute("src")) {
+      console.warn("No video source — showing fallback image.");
+      video.style.display = "none";
+      fallbackImage.style.display = "block";
+      return;
+    }
+
+    video.addEventListener("error", () => {
+      console.warn("Video error — showing fallback image.");
+      video.style.display = "none";
+      fallbackImage.style.display = "block";
+    });
+
+    video.play().catch(() => {
+      console.warn("Video play failed — showing fallback image.");
+      video.style.display = "none";
+      fallbackImage.style.display = "block";
+    });
+});
+
 
 // JavaScript to dynamically create project cards
 const container = document.querySelector(".projects-grid");
@@ -143,4 +169,3 @@ window.addEventListener("scroll", () => {
   }
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
-

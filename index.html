@@ -50,9 +50,10 @@
     </header>
 
     <main id="home" class="hero-section">
-      <video autoplay muted loop playsinline preload="none" class="bg-video">
+      <video autoplay muted loop playsinline preload="none" id="myVideo" class="bg-video">
         <source src="background_video.mp4" type="video/mp4" />
       </video>
+      <img id="fallbackImage" src="alterante-background-image.jpg" alt="Video preview image">
       <div class="fishes">
         <marquee behavior="scroll" direction="Right" scrollamount="20"><p>🐟</p></marquee>
         <marquee behavior="alternate" direction="Left" scrollamount="15"><p>🐡</p></marquee>
@@ -141,7 +142,8 @@
         <div class="about-image">
           <img
             src="profile.jpg"
-            alt="Profile working on data"
+            onerror="this.onerror=null; this.src='SRK-Logo.png';"
+            alt="SRK-Logo.png"
             class="scroll-animate from-right"
             loading="lazy"
             preload="none"
@@ -380,7 +382,6 @@
         ></a>
       </div>
     </footer>
-
     <script src="index.js"></script>
   </body>
 </html>
